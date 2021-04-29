@@ -1,10 +1,28 @@
 import NavBar from 'react-bootstrap/NavBar';
+import Nav from 'react-bootstrap/Nav';
+import Button from 'react-bootstrap/Button';
 
 function Navigation(): JSX.Element {
     return (
-        <h1>
-            Wowza.
-        </h1>
+        <NavBar
+            variant="dark"
+            bg="dark"
+        >
+            <NavBar.Brand href="/">
+                LIT Classifieds
+            </NavBar.Brand>
+            <Nav fill className="my-navbar">
+                <Nav.Link>
+                    For Sale
+                </Nav.Link>
+                <Nav.Link>
+                    Looking to Buy
+                </Nav.Link>
+                <Button>
+                    Create a Listing
+                </Button>
+            </Nav>
+        </NavBar>
     );
 };
 
