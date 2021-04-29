@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import Navigation from '../components/Navigation';
+import ListingModal from '../components/ListingModal';
 import '../styles/globals.css';
 import '../styles/navigation.css';
 
@@ -23,6 +24,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         />
       </Head>
       <Navigation />
+      <ListingModal showModal={showModal} modalPhase={modalPhase} />
       <Component {...pageProps} />
     </div>
   )
