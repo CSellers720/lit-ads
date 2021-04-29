@@ -12,10 +12,10 @@ function Navigation(): JSX.Element {
                 LIT Classifieds
             </NavBar.Brand>
             <Nav fill className="my-navbar">
-                <Nav.Link>
+                <Nav.Link href="/sell">
                     For Sale
                 </Nav.Link>
-                <Nav.Link>
+                <Nav.Link href="/buy">
                     Looking to Buy
                 </Nav.Link>
                 <Button>

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import Navigation from '../components/Navigation';
@@ -5,6 +6,8 @@ import '../styles/globals.css';
 import '../styles/navigation.css';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+  const [modalPhase, setModalPhase] = useState<number>(0);
+  const [showModal, setShowModal] = useState<boolean>(false);
   return (
     <div>
       <Head>
