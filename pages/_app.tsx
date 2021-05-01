@@ -23,8 +23,16 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
           crossOrigin="anonymous"
         />
       </Head>
-      <Navigation />
-      <ListingModal showModal={showModal} modalPhase={modalPhase} />
+      <Navigation 
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
+      <ListingModal
+        showModal={showModal}
+        modalPhase={modalPhase}
+        setShowModal={setShowModal}
+        setModalPhase={setModalPhase}
+      />
       <Component {...pageProps} />
     </div>
   )

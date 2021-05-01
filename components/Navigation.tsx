@@ -2,7 +2,15 @@ import NavBar from 'react-bootstrap/NavBar';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 
-function Navigation(): JSX.Element {
+interface NavigationProps {
+  showModal: boolean;
+  setShowModal: (value: boolean) => void;
+}
+
+function Navigation({ showModal, setShowModal }: NavigationProps): JSX.Element {
+    function toggle(): void {
+      setShowModal(!showModal);
+    };
     return (
         <NavBar
             variant="dark"
@@ -18,7 +26,7 @@ function Navigation(): JSX.Element {
                 <Nav.Link href="/buy">
                     Looking to Buy
                 </Nav.Link>
-                <Button>
+                <Button onClick={toggle}>
                     Create a Listing
                 </Button>
             </Nav>
