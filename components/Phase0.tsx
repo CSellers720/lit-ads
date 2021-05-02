@@ -50,6 +50,7 @@ function Phase0({ userData, userData: { phase0 }, setUserData }: PhaseProps): JS
           <div>
             {radios.map((radio: Check): JSX.Element => (
               <Form.Check
+                key={radio.label}
                 type="radio"
                 name="listing"
                 id={radio.label}
@@ -67,6 +68,7 @@ function Phase0({ userData, userData: { phase0 }, setUserData }: PhaseProps): JS
               <option value={ListingCategory.Null}>Select a category for your listing</option>
               {categories.map((cat): JSX.Element => (
                 <option
+                  key={cat.value}
                   value={cat.value}
                   selected={cat.checked}
                 >
