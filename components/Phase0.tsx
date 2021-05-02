@@ -1,7 +1,7 @@
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import {
-  ModalBodyProps, ListingType, ListingCategory, UserData,
+  ListingType, ListingCategory, UserData,
   Check, PhaseProps,
 } from './interfaces';
 import cloneDeep from 'clone-deep';
@@ -21,6 +21,7 @@ function Phase0({ userData, userData: { phase0 }, setUserData }: PhaseProps): JS
     },
   ];
   const categoryNames = Object.keys(ListingCategory);
+  categoryNames.pop();
   const categories = categoryNames.map((category: string): Check => ({
     label: category,
     checked: phase0.category === ListingCategory[category],
@@ -37,6 +38,7 @@ function Phase0({ userData, userData: { phase0 }, setUserData }: PhaseProps): JS
         <Form.Group controlId="title">
           <Form.Label>Listing Title</Form.Label>
           <Form.Control
+            required
             type="string"
             placeholder={phase0.title || "Enter Title"}
             onChange={(event) => setter('title', event.target.value)}
@@ -63,7 +65,7 @@ function Phase0({ userData, userData: { phase0 }, setUserData }: PhaseProps): JS
           <Form.Label>Category</Form.Label>
           <Form.Control as="select" onChange={(e) => setter('category', e.target.value)}>
               <option value={ListingCategory.Null}>Select a category for your listing</option>
-              {categories.map((cat) => (
+              {categories.map((cat): JSX.Element => (
                 <option
                   value={cat.value}
                   selected={cat.checked}
