@@ -65,23 +65,24 @@ interface Phase0 {
   category: ListingCategory;
 }
 
-interface Check {
-  label: string;
-  checked: boolean;
-  value: ListingType | ListingCategory;
-}
-
 interface Phase1 {
-  image: File | null;
+  image: object | null;
+  previewUrl: string;
   description: string;
   price: number;
-  date: Date;
+  date: Date | null;
 }
 
 interface Phase2 {
   condition: number;
   tags: Array<Tag> | Array<null>;
   email: string;
+}
+
+interface Check {
+  label: string;
+  checked: boolean;
+  value: ListingType | ListingCategory;
 }
 
 interface UserData {
