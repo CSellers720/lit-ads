@@ -69,7 +69,6 @@ interface Phase1 {
   image: object | null;
   previewUrl: string;
   description: string;
-  price: number;
   date: Date | null;
 }
 
@@ -77,6 +76,7 @@ interface Phase2 {
   condition: number;
   tags: Array<Tag> | Array<null>;
   email: string;
+  price: number;
 }
 
 interface Check {

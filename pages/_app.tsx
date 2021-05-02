@@ -20,10 +20,10 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
       image: null,
       previewUrl: '',
       description: '',
-      price: 0,
       date: null,
     },
     phase2: {
+      price: 0,
       condition: 4,
       tags: [null],
       email: '',

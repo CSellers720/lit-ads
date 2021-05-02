@@ -7,7 +7,7 @@ function ModalHeader({ modalPhase }: ModalHeaderProps): JSX.Element {
       return (
         <Modal.Header closeButton>
             <Modal.Title>
-                Create a Listing
+                Create a listing
             </Modal.Title>
         </Modal.Header>
       );
@@ -16,7 +16,7 @@ function ModalHeader({ modalPhase }: ModalHeaderProps): JSX.Element {
       return (
         <Modal.Header closeButton>
             <Modal.Title>
-                Add Image, Date and Description
+                Add image, date and description
             </Modal.Title>
         </Modal.Header>
       );
@@ -25,7 +25,7 @@ function ModalHeader({ modalPhase }: ModalHeaderProps): JSX.Element {
       return (
         <Modal.Header closeButton>
             <Modal.Title>
-                Provide Contact Info and Details
+                Set price, condition, and contact info
             </Modal.Title>
         </Modal.Header>
       );
