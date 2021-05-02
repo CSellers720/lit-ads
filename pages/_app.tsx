@@ -18,9 +18,10 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     },
     phase1: {
       image: null,
+      previewUrl: '',
       description: '',
       price: 0,
-      date: new Date(),
+      date: null,
     },
     phase2: {
       condition: 4,
