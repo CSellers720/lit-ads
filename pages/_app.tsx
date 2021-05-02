@@ -3,12 +3,31 @@ import Head from 'next/head';
 import { AppProps } from 'next/app';
 import Navigation from '../components/Navigation';
 import ListingModal from '../components/ListingModal';
+import { UserData, ListingCategory, ListingType } from '../components/interfaces';
 import '../styles/globals.css';
 import '../styles/navigation.css';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   const [modalPhase, setModalPhase] = useState<number>(0);
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [userData, setUserData] = useState<UserData>({
+    phase0: {
+      title: '',
+      listing: ListingType.Null,
+      category: ListingCategory.Null,
+    },
+    phase1: {
+      image: null,
+      description: '',
+      price: 0,
+      date: new Date(),
+    },
+    phase2: {
+      condition: 4,
+      tags: [null],
+      email: '',
+    },
+  });
   return (
     <div>
       <Head>
@@ -30,8 +49,10 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
       <ListingModal
         showModal={showModal}
         modalPhase={modalPhase}
+        userData={userData}
         setShowModal={setShowModal}
         setModalPhase={setModalPhase}
+        setUserData={setUserData}
       />
       <Component {...pageProps} />
     </div>
