@@ -55,7 +55,7 @@ function Phase0({ userData, userData: { phase0 }, setUserData }: PhaseProps): JS
                 name="listing"
                 id={radio.label}
                 label={radio.label}
-                checked={radio.checked}
+                defaultChecked={radio.checked}
                 onClick={(): void => { setter('listing', radio.value); }}
               />
             ))}
@@ -64,13 +64,16 @@ function Phase0({ userData, userData: { phase0 }, setUserData }: PhaseProps): JS
 
         <Form.Group controlId="category">
           <Form.Label>Category</Form.Label>
-          <Form.Control as="select" onChange={(e) => setter('category', e.target.value)}>
+          <Form.Control
+            as="select"
+            onChange={(e) => setter('category', e.target.value)}
+            defaultValue={phase0.category}
+          >
               <option value={ListingCategory.Null}>Select a category for your listing</option>
               {categories.map((cat): JSX.Element => (
                 <option
                   key={cat.value}
                   value={cat.value}
-                  selected={cat.checked}
                 >
                   {cat.label}
                 </option>

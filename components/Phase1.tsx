@@ -54,7 +54,7 @@ function Phase1({
         </div>
         <Form.Group onChange={(e): void => setter('description', e.target.value) }>
           <Form.Label>Description</Form.Label>
-          <Form.Control as="textarea" rows={3} value={description} />
+          <Form.Control as="textarea" rows={3} defaultValue={description} />
         </Form.Group>
 
         <Form.Label>Pick an end date for this listing</Form.Label>

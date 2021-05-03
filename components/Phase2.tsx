@@ -99,7 +99,8 @@ function Phase2({ userData, userData: { phase2 }, setUserData }: PhaseProps): JS
             <Form.Check
               type="checkbox"
               label={arr[0]}
-              checked={arr[1].checked}
+              defaultChecked={arr[1].checked}
+              key={arr[0]}
               onClick={(): void => {
                 toggle(arr[0]);
               }}
