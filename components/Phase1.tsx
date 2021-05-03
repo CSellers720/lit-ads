@@ -6,7 +6,6 @@ import { UserData, PhaseProps } from './interfaces';
 import cloneDeep from 'clone-deep';
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
-
 import styles from '../styles/Phase1.module.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -25,8 +24,9 @@ function Phase1({
   // setter() was causing issues here so I made a custom setter
   function handleFile(file: object): void {
     let updated: UserData = cloneDeep(userData);
-    updated.phase1.image = file;
-    updated.phase1.previewUrl = URL.createObjectURL(file);
+    updated.phase1.image = (file);
+    console.log(file);
+    updated.phase1.previewUrl = URL.createObjectURL(cloneDeep(file));
     setUserData(updated);
   };
 

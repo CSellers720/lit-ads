@@ -14,7 +14,7 @@ function Listing({ userData: { phase0, phase1, phase2 } }): JSX.Element {
       }
     }
     setTagList(tags);
-  });
+  }, []);
 
   const listing = 
     <Card className={styles.card}>
@@ -54,7 +54,7 @@ function Listing({ userData: { phase0, phase1, phase2 } }): JSX.Element {
           </span>
         </Card.Text>
         <Card.Text className={styles.expiry}>
-          Listing expires {phase1.date.toLocaleDateString()}
+          Listing expires {new Date(phase1.date).toLocaleDateString()}
         </Card.Text>
         <Card.Text>
           Tags:

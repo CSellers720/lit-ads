@@ -1,10 +1,19 @@
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import { ModalFooterProps, defaultUserData } from './interfaces';
+import { ModalFooterProps, UserData } from './interfaces';
+import axios from 'axios';
 
 function ModalFooter({
-  modalPhase, valid, incrementPhase, decrementPhase, toggle,
+  modalPhase, valid, userData, incrementPhase, decrementPhase, toggle,
 }: ModalFooterProps): JSX.Element {
+  const submitHandler = (input: UserData): void => {
+    axios.post('/api/listings/', userData)
+      .then((data) => {
+        console.log(data);
+      });
+    toggle();
+    window.location.reload(false);
+  };
 
   switch(modalPhase) {
     case 0: {
@@ -64,7 +73,10 @@ function ModalFooter({
           <Button onClick={decrementPhase}>
             {'<'} Back
           </Button>
-          <Button disabled={!valid}>
+          <Button
+            disabled={!valid}
+            onClick={() => submitHandler(userData)}
+          >
             Submit
           </Button>
           <Button onClick={toggle}>

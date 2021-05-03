@@ -16,19 +16,14 @@ function Navigation({ showModal, setShowModal }: NavigationProps): JSX.Element {
             variant="dark"
             bg="dark"
         >
-            <NavBar.Brand href="/">
+            <NavBar.Brand>
                 LIT Classifieds
             </NavBar.Brand>
             <Nav fill className="my-navbar">
-                <Nav.Link href="/sell">
-                    For Sale
-                </Nav.Link>
-                <Nav.Link href="/buy">
-                    Looking to Buy
-                </Nav.Link>
                 <Button onClick={toggle}>
                     Create a Listing
                 </Button>
+                {process.env.MONGO_URI}
             </Nav>
         </NavBar>
     );

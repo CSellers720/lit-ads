@@ -54,6 +54,7 @@ interface ModalBodyProps {
 interface ModalFooterProps {
   modalPhase: number;
   valid: boolean;
+  userData: UserData;
   incrementPhase: () => void;
   decrementPhase: () => void;
   toggle: () => void;
@@ -82,7 +83,7 @@ interface Phase0 {
 }
 
 interface Phase1 {
-  image: object | null;
+  image: any;
   previewUrl: string;
   description: string;
   date: Date | null;
@@ -131,7 +132,7 @@ const defaultUserData: UserData = {
     image: null,
     previewUrl: '',
     description: '',
-    date: null,
+    date: new Date(),
   },
   phase2: {
     price: 0,
