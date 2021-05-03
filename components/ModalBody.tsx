@@ -6,7 +6,7 @@ import Phase3 from './Phase3';
 import { ModalBodyProps } from './interfaces';
 
 function ModalBody({
-  modalPhase, userData, setUserData, setValid,
+  modalPhase, userData, valid, setUserData, setValid,
 }: ModalBodyProps): JSX.Element {
   switch(modalPhase) {
     case 0: {
@@ -35,7 +35,11 @@ function ModalBody({
     }
     case 3: {
       return (
-        <Phase3 userData={userData} setValid={setValid} />
+        <Phase3
+          userData={userData}
+          valid={valid}
+          setValid={setValid}
+        />
       );
     }
   }

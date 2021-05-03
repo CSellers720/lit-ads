@@ -44,6 +44,7 @@ interface ModalHeaderProps {
 interface ModalBodyProps {
   modalPhase: number;
   userData: UserData;
+  valid: boolean;
   setValid: (value: boolean) => void;
   setUserData: (value: UserData) => void;
 };
@@ -83,6 +84,7 @@ interface Phase2 {
 
 interface Phase3Props {
   userData: UserData;
+  valid: boolean;
   setValid: (value: boolean) => void;
 }
 

@@ -31,6 +31,7 @@ function ListingModal({
     <Modal show={showModal} onHide={toggle}>
       <ModalHeader modalPhase={modalPhase} />
       <ModalBody 
+        valid={valid}
         setValid={setValid}
         modalPhase={modalPhase}
         userData={userData}
