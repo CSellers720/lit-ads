@@ -7,7 +7,7 @@ import {
 import cloneDeep from 'clone-deep';
 
 function Phase0({ userData, userData: { phase0 }, setUserData }: PhaseProps): JSX.Element {
-  const { listing, category } = phase0;
+  const { listing } = phase0;
   const radios: Array<Check> = [
     { 
       label: 'Looking to Buy', 
@@ -22,7 +22,7 @@ function Phase0({ userData, userData: { phase0 }, setUserData }: PhaseProps): JS
   ];
   const categoryNames = Object.keys(ListingCategory);
   categoryNames.pop();
-  const categories = categoryNames.map((category: string): Check => ({
+  const categories: Array<Check> = categoryNames.map((category: string): Check => ({
     label: category,
     checked: phase0.category === ListingCategory[category],
     value: ListingCategory[category],
