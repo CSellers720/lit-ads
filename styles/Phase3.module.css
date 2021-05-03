@@ -1,0 +1,8 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.alert {
+  margin-top: 15px;
+}

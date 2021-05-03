@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Phase3Props, UserData, defaultUserData } from './interfaces';
 import Alert from 'react-bootstrap/Alert';
 import Listing from './Listing';
+import styles from '../styles/Phase3.module.css';
 
 function Phase3({ userData, setValid, valid }: Phase3Props): JSX.Element {
   function validatePhase(input: any, def: any): boolean {
@@ -27,14 +28,19 @@ function Phase3({ userData, setValid, valid }: Phase3Props): JSX.Element {
   });
 
   return (
-    <div>
+    <div className={styles.container}>
       {!valid &&
         <Alert variant="danger">
           There is missing data!
           Please go back and fill in all fields.
         </Alert>
       }
-      <Listing userData={userData} />
+      {valid &&
+        <div>
+          <Alert variant="primary" className={styles.alert}>Listing Preview</Alert>
+          <Listing userData={userData} />
+        </div>
+      }
     </div>
   );
 };

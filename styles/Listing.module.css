@@ -1,15 +1,50 @@
 .card {
-  width: 300px;
+  max-width: 350px;
+  width: 350px;
 }
 
 .cardImg {
-  width: 300px;
+  width: 350px;
   object-fit: contain;
-  height: 100px;
+  max-height: 125px;
+  margin-top: 15px;
+}
+
+.price {
+  float: right;
+}
+
+.description {
+  text-align: justify;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.category {
+  margin-left: 10px;
+}
+
+.condition {
+  margin-top: 3px;
 }
 
 .container {
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.email {
+  font-weight: 600;
+  float: right;
+}
+
+.expiry {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.tagList {
+  font-size: 12px;
+  font-weight: 600;
 }
