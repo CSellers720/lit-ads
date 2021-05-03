@@ -14,7 +14,7 @@ function Phase1({
   userData, userData: { phase1 }, setUserData 
 }: PhaseProps): JSX.Element {
   const [dateMessage, setDateMessage] = useState<boolean>(false);
-  const { date, previewUrl } = phase1;
+  const { date, previewUrl, description } = phase1;
 
   function setter(stateName: string, newValue: any): void {
     let updated: UserData = cloneDeep(userData);
@@ -54,7 +54,7 @@ function Phase1({
         </div>
         <Form.Group onChange={(e): void => setter('description', e.target.value) }>
           <Form.Label>Description</Form.Label>
-          <Form.Control as="textarea" rows={3} />
+          <Form.Control as="textarea" rows={3} value={description} />
         </Form.Group>
 
         <Form.Label>Pick an end date for this listing</Form.Label>
