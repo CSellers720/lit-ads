@@ -1,10 +1,11 @@
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import { ModalFooterProps } from './interfaces';
+import { ModalFooterProps, defaultUserData } from './interfaces';
 
-function ModalHeader({
-  modalPhase, incrementPhase, decrementPhase, toggle,
+function ModalFooter({
+  modalPhase, valid, incrementPhase, decrementPhase, toggle,
 }: ModalFooterProps): JSX.Element {
+
   switch(modalPhase) {
     case 0: {
       return (
@@ -12,7 +13,9 @@ function ModalHeader({
           <Button disabled>
             {'<'} Back
           </Button>
-          <Button onClick={incrementPhase}>
+          <Button
+            onClick={incrementPhase}
+          >
             Forward {'>'}
           </Button>
           <Button onClick={toggle}>
@@ -27,7 +30,9 @@ function ModalHeader({
           <Button onClick={decrementPhase}>
             {'<'} Back
           </Button>
-          <Button onClick={incrementPhase}>
+          <Button
+            onClick={incrementPhase}
+          >
             Forward {'>'}
           </Button>
           <Button onClick={toggle}>
@@ -42,7 +47,9 @@ function ModalHeader({
           <Button onClick={decrementPhase}>
             {'<'} Back
           </Button>
-          <Button onClick={incrementPhase}>
+          <Button
+            onClick={incrementPhase}
+          >
             Forward {'>'}
           </Button>
           <Button onClick={toggle}>
@@ -57,7 +64,7 @@ function ModalHeader({
           <Button onClick={decrementPhase}>
             {'<'} Back
           </Button>
-          <Button /* need submit logic */>
+          <Button disabled={!valid}>
             Submit
           </Button>
           <Button onClick={toggle}>
@@ -69,4 +76,4 @@ function ModalHeader({
   }
 };
 
-export default ModalHeader;
+export default ModalFooter;

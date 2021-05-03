@@ -2,10 +2,11 @@ import Modal from 'react-bootstrap/Modal';
 import Phase0 from './Phase0';
 import Phase1 from './Phase1';
 import Phase2 from './Phase2';
+import Phase3 from './Phase3';
 import { ModalBodyProps } from './interfaces';
 
 function ModalBody({
-  modalPhase, userData, setUserData,
+  modalPhase, userData, setUserData, setValid,
 }: ModalBodyProps): JSX.Element {
   switch(modalPhase) {
     case 0: {
@@ -34,9 +35,7 @@ function ModalBody({
     }
     case 3: {
       return (
-        <Modal.Body>
-          
-        </Modal.Body>
+        <Phase3 userData={userData} setValid={setValid} />
       );
     }
   }
