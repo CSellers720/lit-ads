@@ -1,0 +1,15 @@
+.card {
+  width: 300px;
+}
+
+.cardImg {
+  width: 300px;
+  object-fit: contain;
+  height: 100px;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
