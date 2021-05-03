@@ -1,3 +1,4 @@
+////////////////////////////// ENUMS
 enum ListingType {
   Buy = 'BUY',
   Sell = 'SELL',
@@ -28,6 +29,7 @@ enum Tag {
   Instrument = 'INSTRUMENT',
 }
 
+////////////////////////////// PROP INTERFACES
 interface ModalProps {
   showModal: boolean;
   modalPhase: number;
@@ -62,6 +64,17 @@ interface PhaseProps {
   setUserData: (value: UserData) => void;
 }
 
+interface Phase3Props {
+  userData: UserData;
+  valid: boolean;
+  setValid: (value: boolean) => void;
+}
+
+interface ListingProps {
+  userData: UserData;
+}
+
+////////////////////////////// PHASE INTERFACES
 interface Phase0 {
   title: string;
   listing: ListingType;
@@ -82,16 +95,7 @@ interface Phase2 {
   price: number;
 }
 
-interface Phase3Props {
-  userData: UserData;
-  valid: boolean;
-  setValid: (value: boolean) => void;
-}
-
-interface ListingProps {
-  userData: UserData;
-}
-
+////////////////////////////// MISC INTERFACES
 interface Check {
   label: string;
   checked: boolean;
@@ -104,6 +108,7 @@ interface UserData {
   phase2: Phase2;
 }
 
+////////////////////////////// DEFAULT VALUES
 const tagNames: Array<string> = Object.keys(Tag);
 const defaultTags: object = {};
 
