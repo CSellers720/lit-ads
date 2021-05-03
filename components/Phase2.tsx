@@ -17,13 +17,36 @@ function Phase2({ userData, userData: { phase2 }, setUserData }: PhaseProps): JS
     setUserData(updated);
   };
 
-  function validatePrice(price: number): void {
+  function validatePrice(input: string): void {
+    const numbers: RegExp = /[^0-9 | .]/g;
+    const notNumbers: Array<string> | null = input.match(numbers);
+    const containsInvalid: boolean = notNumbers !== null;
+    if (containsInvalid) {
+      setValidPrice(false);
+      setter('price', 0);
+      return;
+    }
+
+    const split: Array<string> = input.split('.');
+    if (split.length > 2) {
+      setValidPrice(false);
+      setter('price', 0);
+      return;
+    }
+    if (split.length === 2 && split[1].length > 2) {
+      setValidPrice(false);
+      setter('price', 0);
+      return;
+    }
+
+    const price = Number.parseFloat(input);
     if (!isNaN(price) && price >= 0) {
       setValidPrice(true);
       setter('price', price);
-    } else {
-      setValidPrice(false);
+      return;
     }
+    setValidPrice(false);
+    setter('price', 0);
   };
 
   function validateEmail(email: string): void {
@@ -50,9 +73,9 @@ function Phase2({ userData, userData: { phase2 }, setUserData }: PhaseProps): JS
           <Form.Label>Price (USD)</Form.Label>
           <Form.Control 
             onChange={(e): void => (
-              validatePrice(Number.parseFloat(e.target.value)
-            ))}
-            value={phase2.price}
+              validatePrice(e.target.value)
+            )}
+            defaultValue={phase2.price}
           />
           {!validPrice &&
             <Alert variant="danger" className={styles.alert}>
@@ -89,7 +112,7 @@ function Phase2({ userData, userData: { phase2 }, setUserData }: PhaseProps): JS
           <Form.Label>Email</Form.Label>
           <Form.Control 
             type="email"
-            value={phase2.email}
+            defaultValue={phase2.email}
             onChange={(e): void => validateEmail(e.target.value)}
           />
           {!validEmail &&
