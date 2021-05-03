@@ -4,7 +4,7 @@ import Alert from 'react-bootstrap/Alert';
 import Listing from './Listing';
 import styles from '../styles/Phase3.module.css';
 
-function Phase3({ userData, setValid, valid, modalPhase }: Phase3Props): JSX.Element {
+function Phase3({ userData, setValid, valid }: Phase3Props): JSX.Element {
   function validatePhase(input: any, def: any): boolean {
     for (let k in input) {
       if (input[k] === def[k] && k !== 'condition') {
@@ -25,7 +25,7 @@ function Phase3({ userData, setValid, valid, modalPhase }: Phase3Props): JSX.Ele
 
   useEffect(() => {
     setValid(validateAll());
-  }, [modalPhase]);
+  }, []);
 
   return (
     <div className={styles.container}>
