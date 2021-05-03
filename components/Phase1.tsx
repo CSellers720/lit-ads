@@ -14,7 +14,7 @@ function Phase1({
   userData, userData: { phase1 }, setUserData 
 }: PhaseProps): JSX.Element {
   const [dateMessage, setDateMessage] = useState<boolean>(false);
-  const { image, description, price, date, previewUrl } = phase1;
+  const { date, previewUrl } = phase1;
 
   function setter(stateName: string, newValue: any): void {
     let updated: UserData = cloneDeep(userData);
@@ -47,7 +47,7 @@ function Phase1({
         </Form.Group>
         <div className={styles.imageContainer}>
           <Image
-            src={phase1.previewUrl}
+            src={previewUrl}
             rounded
             className={styles.imagePreview}
           />
@@ -60,7 +60,7 @@ function Phase1({
         <Form.Label>Pick an end date for this listing</Form.Label>
         <br />
         <DatePicker
-          selected={phase1.date}
+          selected={date}
           onChange={(date: Date): void => validateDate(date)}
         />
 
